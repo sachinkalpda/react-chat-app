@@ -1,18 +1,23 @@
+import { Route, Routes } from "react-router-dom";
 import ChatSection from "./ChatSection";
-import Conversation from "./Conversations";
+import Layout from "./Layout";
+import Home from "./Home";
 
 function App() {
   return (
-    <div className="container">
-      <div className="chat-container">
-        {/* left section */}
-         <Conversation />
+    <>
 
-         {/* right section */}
-         <ChatSection />
+      <Routes>
+        <Route element={<Layout />}>
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/chat/:user/:room" element={<ChatSection />} />
+        </Route>
+      </Routes>
 
-      </div>
-    </div>
+    </>
+
+
+
   );
 }
 

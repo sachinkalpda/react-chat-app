@@ -1,22 +1,28 @@
 
+import { Link } from "react-router-dom";
+import userImg from '../images/user.png';
+import { useSelector } from "react-redux";
 
+const User = ({ user }) => {
+    const reciever = useSelector((state) => state.chats.reciever);
 
-
-
-const User = () => {
     return (
-        <div className="user-item">
-            <div className="user-item-image">
-                <img src="./images/user.png" alt="" />
-            </div>
-            <div className="user-item-details">
-                <div className="title-heading">
-                    <div className="title">User 1</div>
-                    <span>06:00 am</span>
+        <>
+            <Link to={`/chat/${user.id}/${user.room}`} >
+                <div className={(Object.keys(reciever).length !== 0 && user.id === reciever.id)  ? 'user-item active' : 'user-item'}>
+                    <div className="user-item-image">
+                        <img src={userImg} alt="" />
+                    </div>
+                    <div className="user-item-details">
+                        <div className="title-heading">
+                            <div className="title">{user.name}</div>
+                            <span>{new Intl.DateTimeFormat({hours: 'numeric', minuts : 'numeric'}).format(user.lastMessageTime)}</span>
+                        </div>
+                        <span>{user.lastMessage}</span>
+                    </div>
                 </div>
-                <span>test message</span>
-            </div>
-        </div>
+            </Link>
+        </>
     )
 }
 
