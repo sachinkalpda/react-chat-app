@@ -1,3 +1,10 @@
+# Chat App in React
+
+In this project user can chat with other available users. We have created a dummy logged in user. Data is fetched from data.js file available in directory. User can search the conversation and start a new conversation from available contacts.
+
+react-redux, redux-persist, redux-thunk and react-router-dom libraries are used.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
